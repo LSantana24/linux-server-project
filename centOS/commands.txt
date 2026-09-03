@@ -1,0 +1,16 @@
+CentOS Linux Server Commands
+
+Check Operating System:
+cat /etc/os-release
+
+Check IP address:
+ip addr
+
+Test Internet:
+ping -c 4 google.com 
+
+Test network connection:
+ping -c 4 [Unbuntu IP Address]
+
+Check SSH:
+sudo systemctl status sshd
