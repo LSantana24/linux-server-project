@@ -24,3 +24,6 @@ echo "Hello from CentOS" > test.txt
 
 Test file:
 cat test.txt
+
+Transfer File:
+scp test.txt LSantana24@[UbuntuIP]:/home/LSantana24/
