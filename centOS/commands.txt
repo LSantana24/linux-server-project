@@ -10,7 +10,7 @@ Test Internet:
 ping -c 4 google.com 
 
 Test network connection:
-ping -c 4 [Unbuntu IP]
+ping -c 4 [Ubuntu IP]
 
 Test SSH service:
 sudo systemctl enable --now sshd
