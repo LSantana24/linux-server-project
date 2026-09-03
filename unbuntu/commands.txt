@@ -12,10 +12,9 @@ ping -c 4 google.com
 Test network connection:
 ping -c 4 [CentOS IP] 
 
-Install SSH:
+Install SSH and SCP:
 sudo apt update 
-sudo apt install openssh-server -y 
-
+sudo apt install openssh-server openssh-client -y 
 
 Test SSH service: 
 sudo systemctl enable --now ssh
@@ -26,3 +25,8 @@ echo "Hello from Ubuntu" > test.txt
 
 Test file: 
 cat test.txt
+
+Transfer files:
+scp test.txt LSantana24@[CentOS IP]:/home/LSantana24/
+
+ls -l test.txt
