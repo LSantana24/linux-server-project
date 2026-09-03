@@ -10,7 +10,17 @@ Test Internet:
 ping -c 4 google.com 
 
 Test network connection:
-ping -c 4 [Unbuntu IP Address]
+ping -c 4 [Unbuntu IP]
 
-Check SSH:
+Test SSH service:
+sudo systemctl enable --now sshd
 sudo systemctl status sshd
+
+Install SCP/SSH tools:
+sudo dnf install openssh-server openssh-clients -y 
+
+Create test file:
+echo "Hello from CentOS" > test.txt
+
+Test file:
+cat test.txt
