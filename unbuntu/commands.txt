@@ -1,0 +1,28 @@
+Ubuntu Linux Server Commands
+
+Check Operating system:
+cat /etc/os-release
+
+Check IP address:
+ip addr
+
+Test Internet:
+ping -c 4 google.com
+
+Test network connection:
+ping -c 4 [CentOS IP] 
+
+Install SSH:
+sudo apt update 
+sudo apt install openssh-server -y 
+
+
+Test SSH service: 
+sudo systemctl enable --now ssh
+sudo systemctl status ssh
+
+Create test file: 
+echo "Hello from Ubuntu" > test.txt
+
+Test file: 
+cat test.txt
