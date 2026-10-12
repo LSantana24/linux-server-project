@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Network Troubleshooting Script
+# This script asks which server you are using and displays
+# basic commands to help check network connectivity.
+
+# HOW TO RUN THIS SCRIPT:
+# 1. Save this file as network_troubleshoot.sh
+# 2. Make the script executable:
+#       chmod +x network_troubleshoot.sh
+# 3. Run the script:
+#       ./network_troubleshoot.sh
+
+# The troubleshooting log is saved in the
+# network_info_dumps folder inside your home directory.
+
+# Create the folder for the troubleshooting log.
+mkdir -p "$HOME/network_info_dumps"
+
+# Set the log file location.
+LOG="$HOME/network_info_dumps/troubleshooting.txt"
+
+# Display the menu and ask which server is being used.
+echo "Network Troubleshooting"
+echo "1. Ubuntu Server"
+echo "2. CentOS Server"
+
+read -r -p "Choose a server (1 or 2): " choice
+
+# Sets the server name based on the user's choice.
+if [ "$choice" = "1" ]; then
+    SERVER="Ubuntu"
+elif [ "$choice" = "2" ]; then
+    SERVER="CentOS"
+else
+    echo "Invalid choice. Enter 1 or 2."
+    exit 1
+fi
+
+# Collects troubleshooting information and save it to the log.
+{
+    echo "Server: $SERVER"
+
+    # Show the default network configuration location.
+    if [ "$choice" = "1" ]; then
+        echo "Network files: /etc/netplan/"
+        echo "Network services: systemd-networkd"
+    elif [ "$choice" = "2" ]; then
+        echo "Network manager: NetworkManager"
+        echo "Check connections: nmcli connection show"
+    fi
+
+    echo
+    echo "=== IP ADDRESS ==="
+    ip addr
+
+    echo
+    echo "=== Default Gateway ==="
+    ip route
+
+    echo
+    echo "=== DNS SETTINGS ==="
+    cat /etc/resolv.conf
+
+    echo
+    echo "=== Internet Test ==="
+    ping -c 2 1.1.1.1
+
+    echo
+    echo "=== DNS Test ==="
+    getent hosts google.com
+
+    echo
+    echo "If connection fails, check the IP address,"
+    echo "gateway, DNS settings, and network adapter."
+    echo "Back up configuration files before changing them."
+
+} > "$LOG" 2>&1
+
+# Show where the log was saved.
+echo
+echo "Troubleshooting complete."
+echo "Results saved to: $LOG"
