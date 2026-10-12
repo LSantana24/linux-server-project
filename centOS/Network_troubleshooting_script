@@ -3,16 +3,14 @@
 # Network Troubleshooting Script
 # This script asks which server you are using and displays
 # basic commands to help check network connectivity.
-#
+
 # HOW TO RUN THIS SCRIPT:
 # 1. Save this file as network_troubleshoot.sh
 # 2. Make the script executable:
 #       chmod +x network_troubleshoot.sh
-# 3. Check for syntax errors:
-#       bash -n network_troubleshoot.sh
-# 4. Run the script:
-#       ./network_troubleshoot.sh
-#
+# 3. Run the script:
+#     ./network_troubleshoot.sh
+
 # The troubleshooting log is saved in the
 # network_info_dumps folder inside your home directory.
 
