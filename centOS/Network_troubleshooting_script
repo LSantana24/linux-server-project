@@ -14,7 +14,7 @@
 # The troubleshooting log is saved in the
 # network_info_dumps folder inside your home directory.
 
-# Create the folder for the troubleshooting log.
+# Creates the folder for the troubleshooting log.
 mkdir -p "$HOME/network_info_dumps"
 
 # Sets the log file location.
@@ -77,7 +77,7 @@ fi
 
 } > "$LOG" 2>&1
 
-# Show where the log was saved.
+# Shows where the log was saved.
 echo
 echo "Troubleshooting complete."
 echo "Results saved to: $LOG"
