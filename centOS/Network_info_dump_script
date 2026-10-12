@@ -3,15 +3,14 @@
 # Network Information Dump Script
 # This script collects network information
 # and saves it in a text file.
-#
+
 # HOW TO RUN THIS SCRIPT:
 # 1. Save this file as network_info_dump.sh
-# 2. Open a terminal in the folder where you saved it.
-# 3. Make the script executable:
+# 2. Make the script executable:
 #       chmod +x network_info_dump.sh
-# 5. Run the script:
+# 3. Run the script:
 #       ./network_info_dump.sh
-#
+
 # The report is saved in the network_reports folder
 # inside your home directory.
 
