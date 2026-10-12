@@ -14,13 +14,13 @@
 # The report is saved in the network_reports folder
 # inside your home directory.
 
-# Create the report folder if it does not exist.
+# Creates the report folder if it does not exist.
 mkdir -p "$HOME/network_reports"
 
-# Create a report filename using the hostname and date.
+# Creates a report filename using the hostname and date.
 REPORT="$HOME/network_reports/network_info_$(hostname)-$(date +%F).txt"
 
-# Collect the information and save it to the report.
+# Collects the information and save it to the report.
 {
     # Display the report title and current date.
     echo "Network Info"
@@ -48,6 +48,6 @@ REPORT="$HOME/network_reports/network_info_$(hostname)-$(date +%F).txt"
 
 } > "$REPORT"
 
-# Show where the report was saved.
+# Shows where the report was saved.
 echo
 echo "This report was saved to $REPORT"
