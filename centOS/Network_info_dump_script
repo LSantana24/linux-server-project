@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Network Information Dump Script
+# This script collects network information
+# and saves it in a text file.
+#
+# HOW TO RUN THIS SCRIPT:
+# 1. Save this file as network_info_dump.sh
+# 2. Open a terminal in the folder where you saved it.
+# 3. Make the script executable:
+#       chmod +x network_info_dump.sh
+# 5. Run the script:
+#       ./network_info_dump.sh
+#
+# The report is saved in the network_reports folder
+# inside your home directory.
+
+# Create the report folder if it does not exist.
+mkdir -p "$HOME/network_reports"
+
+# Create a report filename using the hostname and date.
+REPORT="$HOME/network_reports/network_info_$(hostname)-$(date +%F).txt"
+
+# Collect the information and save it to the report.
+{
+    # Display the report title and current date.
+    echo "Network Info"
+    date
+    echo
+
+    # Show the Linux version.
+    echo "Linux Version:"
+    cat /etc/os-release
+    echo
+
+    # Show the network routes and default gateway.
+    echo "Network Gateway:"
+    ip route
+    echo
+
+    # Show network device information, including DNS settings.
+    echo "DNS Settings:"
+    nmcli device show
+    echo
+
+    # Show the server name.
+    echo "Server Name:"
+    hostname
+
+} > "$REPORT"
+
+# Show where the report was saved.
+echo
+echo "This report was saved to $REPORT"
